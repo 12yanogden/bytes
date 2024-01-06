@@ -64,3 +64,13 @@ func TestExplodeWithMultipleByteDelimiter(t *testing.T) {
 		t.Fatalf("\nExpected: " + SlicesToPrintString(expected) + "\nActual: " + SlicesToPrintString(actual))
 	}
 }
+
+func TestStrings(t *testing.T) {
+	slices := [][]byte{{'a', 'b'}, {' '}, {'c', 'd'}}
+	expected := []string{"ab", " ", "cd"}
+	actual := Strings(slices)
+
+	if !reflect.DeepEqual(expected, actual) {
+		t.Fatalf("\nExpected:\t%#v\nActual:\t\t%#v\n", expected, actual)
+	}
+}

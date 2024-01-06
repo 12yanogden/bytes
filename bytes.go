@@ -78,3 +78,13 @@ func SliceToPrintString(byteSlice []byte) string {
 func AppendRepeat(slice []byte, symbol byte, count int) []byte {
 	return append(slice, bytes.Repeat([]byte{symbol}, count)...)
 }
+
+func Strings(slices [][]byte) []string {
+	out := []string{}
+
+	for _, slice := range slices {
+		out = append(out, string(slice))
+	}
+
+	return out
+}

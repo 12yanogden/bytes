@@ -13,7 +13,7 @@ func TestExplodeWithDelimeterBeginning(t *testing.T) {
 	actual := Explode(byteSlice, delimiter)
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Fatalf("\nExpected: " + SlicesToPrintString(expected) + "\nActual: " + SlicesToPrintString(actual))
+		t.Fatalf("\nExpected:\t" + SlicesToPrintString(expected) + "\nActual:\t\t" + SlicesToPrintString(actual))
 	}
 }
 
@@ -25,7 +25,7 @@ func TestExplodeWithDelimeterEnding(t *testing.T) {
 	actual := Explode(byteSlice, delimiter)
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Fatalf("\nExpected: " + SlicesToPrintString(expected) + "\nActual: " + SlicesToPrintString(actual))
+		t.Fatalf("\nExpected:\t" + SlicesToPrintString(expected) + "\nActual:\t\t" + SlicesToPrintString(actual))
 	}
 }
 
@@ -37,7 +37,7 @@ func TestExplodeWithDelimeterOnly(t *testing.T) {
 	actual := Explode(byteSlice, delimiter)
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Fatalf("\nExpected: " + SlicesToPrintString(expected) + "\nActual: " + SlicesToPrintString(actual))
+		t.Fatalf("\nExpected:\t" + SlicesToPrintString(expected) + "\nActual:\t\t" + SlicesToPrintString(actual))
 	}
 }
 
@@ -49,7 +49,7 @@ func TestExplodeWithSingleByteDelimiter(t *testing.T) {
 	actual := Explode(byteSlice, delimiter)
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Fatalf("\nExpected: " + SlicesToPrintString(expected) + "\nActual: " + SlicesToPrintString(actual))
+		t.Fatalf("\nExpected:\t" + SlicesToPrintString(expected) + "\nActual:\t\t" + SlicesToPrintString(actual))
 	}
 }
 
@@ -61,7 +61,7 @@ func TestExplodeWithMultipleByteDelimiter(t *testing.T) {
 	actual := Explode(byteSlice, delimiter)
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Fatalf("\nExpected: " + SlicesToPrintString(expected) + "\nActual: " + SlicesToPrintString(actual))
+		t.Fatalf("\nExpected:\t" + SlicesToPrintString(expected) + "\nActual:\t\t" + SlicesToPrintString(actual))
 	}
 }
 
@@ -71,6 +71,16 @@ func TestStrings(t *testing.T) {
 	actual := Strings(slices)
 
 	if !reflect.DeepEqual(expected, actual) {
+		t.Fatalf("\nExpected:\t%#v\nActual:\t\t%#v\n", expected, actual)
+	}
+}
+
+func TestOneLine(t *testing.T) {
+	slice := []byte{'a', 'b', 'c'}
+	expected := "'a', 'b', 'c'"
+	actual := OneLine(slice)
+
+	if expected != actual {
 		t.Fatalf("\nExpected:\t%#v\nActual:\t\t%#v\n", expected, actual)
 	}
 }

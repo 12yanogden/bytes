@@ -53,7 +53,7 @@ func SlicesToPrintString(byteSlices [][]byte) string {
 	out := "[\n"
 
 	for _, byteSlice := range byteSlices {
-		out += "    [ " + SliceToPrintString(byteSlice) + " ]\n"
+		out += "    [ " + OneLine(byteSlice) + " ]\n"
 	}
 
 	out += "]\n"
@@ -61,7 +61,7 @@ func SlicesToPrintString(byteSlices [][]byte) string {
 	return out
 }
 
-func SliceToPrintString(byteSlice []byte) string {
+func OneLine(byteSlice []byte) string {
 	out := ""
 
 	for i, singleByte := range byteSlice {
